@@ -16,7 +16,7 @@ export const SocketProvider = ({ children, userId }: SocketProviderProps) => {
     const [socket, setSocket] = useState<Socket | null>(null);
 
     useEffect(() => {
-        const newSocket = io('https://socketio-react-demo.onrender.com:5000', {
+        const newSocket = io('https://socketio-react-demo.onrender.com:443', {
             query: { id: userId }
         });
         setSocket(newSocket);
