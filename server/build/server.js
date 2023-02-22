@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var httpServer = require("http").createServer();
+var httpServer = require("https").createServer();
 var express = require('express');
 var app = express();
 var port = 3000;
