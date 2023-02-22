@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var httpServer = require("http").createServer();
-console.log('Created server', httpServer);
+var express = require('express');
+var app = express();
+var port = 3000;
 var io = require('socket.io')(httpServer, {
     rejectUnauthorized: false,
     cors: {
@@ -28,5 +30,11 @@ io.on('connection', function (socket) {
         });
     });
 });
+app.get('/', function (req, res) {
+    res.send('Hello World!');
+});
+app.listen(port, function () {
+    console.log("Example app listening on port ".concat(port));
+});
 httpServer.listen(5000);
-console.log('Server listening in port 5000');
+console.log('SocketIO Server listening in port 5000');

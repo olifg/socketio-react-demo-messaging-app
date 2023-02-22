@@ -1,7 +1,11 @@
 import { Socket } from "socket.io";
 
 const httpServer = require("http").createServer();
-console.log('Created server', httpServer )
+const express = require('express')
+const app = express()
+
+const port = 3000
+
 
 const io = require('socket.io')(httpServer, {
     rejectUnauthorized: false, // WARN: please do not do this in production
@@ -33,5 +37,14 @@ io.on('connection', (socket: Socket) => {
     })
 })
 
+
+app.get('/', (req: any, res: { send: (arg0: string) => void; }) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
 httpServer.listen(5000);
-console.log('Server listening in port 5000')
+console.log('SocketIO Server listening in port 5000')
