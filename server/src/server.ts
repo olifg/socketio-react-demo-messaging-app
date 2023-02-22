@@ -1,8 +1,8 @@
 import { Socket } from "socket.io";
 
-const httpServer = require("https").createServer();
 const express = require('express')
 const app = express()
+const httpServer = require("https").createServer();
 
 const port = 3000
 
@@ -10,8 +10,7 @@ const port = 3000
 const io = require('socket.io')(httpServer, {
     rejectUnauthorized: false, // WARN: please do not do this in production
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: "https://react-socketio-client-demo.onrender.com/",
       }
 })
 
