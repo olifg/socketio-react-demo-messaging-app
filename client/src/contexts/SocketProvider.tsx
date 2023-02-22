@@ -17,7 +17,7 @@ export const SocketProvider = ({ children, userId }: SocketProviderProps) => {
 
     useEffect(() => {
         const newSocket = io('https://socketio-react-demo.onrender.com:5000', {
-            transports: ['websocket', 'polling', 'flashsocket'],
+            transports: ['websocket'],
             query: { id: userId }
         });
         setSocket(newSocket);
