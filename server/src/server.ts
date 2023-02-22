@@ -6,11 +6,7 @@ const app = express()
 const port = 3000
 
 
-const io = new Server(5000, {
-    cors: {
-        origin: "*",
-      }
-})
+const io = new Server(5000)
 
 io.on('connection', (socket: Socket) => {
     const id = socket.handshake.query.id;
