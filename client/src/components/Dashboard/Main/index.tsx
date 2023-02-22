@@ -25,14 +25,15 @@ export const Dashboard = ({
                     <div className={styles.innerWelcome}>
                         <h1 className={styles.welcomeTitle}>Welcome to Demo Chat App.</h1>
                         <img src={cat} alt="A silly non-important animation of a cat dancing." className={styles.animation} />
-
                         <br />
                         <span>This App was built by <a target="_blank" href="https://github.com/olifg/">Me</a></span>
                         <br />
-                        <span>For the full experience, <a target="_blank" href="https://github.com/olifg/">clone this repo</a> and navigate to /server, in there you can run </span>
-                        <span>the Demo Chat App Server Docker image locally.</span>
+                        <span>For the full experience <a target="_blank" href="https://github.com/olifg/socketio-react-demo-messaging-app">clone this repo</a> and run the project locally.</span>
                         <br />
-                        <span>If you don't have or want to run Docker, you can run 'npm run start' inside the /server directory.</span>
+                        <span>Instructions: </span>
+                        <br />
+                        <span>Navigate to /client and run 'npm run dev', then navigate to /server, in there you can either run </span>
+                        <span>the Demo Chat App Server Docker image, or you can run 'npm run start' to start the local server.</span>
                         <br />
                         <span>To Add new contacts Click 'Contacts' and 'Add Contact'.</span>
                         <br />
