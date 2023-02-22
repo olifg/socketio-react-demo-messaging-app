@@ -1,0 +1,21 @@
+@use '../../../shared/colors' as colors
+
+.container
+    display: flex
+    flex-direction: column
+    width: 100%
+    padding: 0
+    user-select: none
+
+.contactCard
+    color: colors.$primary-text
+    min-height: 42px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    padding-left: 16px
+    border-radius: 4px
+    cursor: pointer
+    &:hover
+        background: linear-gradient(120deg, rgba(colors.$second-color, .5), rgba(colors.$third-color, .5))

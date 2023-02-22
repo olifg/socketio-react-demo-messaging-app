@@ -1,0 +1,81 @@
+@use '../../../shared/colors' as colors
+
+.header
+    font-size: 20px
+    color: colors.$primary-text
+    display: flex
+    justify-content: center
+    align-items: center
+
+.form
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 16px
+    color: colors.$primary-text
+    flex-grow: 1
+
+.label
+    margin-left: 8px
+
+.inputGroup
+    margin-bottom: 8px
+
+.checkBoxContainer
+    margin-top: 24px
+
+.modalPrimaryButton
+    width: 350px
+    border: none
+    outline: none
+    color: colors.$primary-text
+    min-height: 42px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    border-radius: 4px
+    background: linear-gradient(120deg, rgba(colors.$third-color, .5), rgba(colors.$fourth-color, .5))
+    cursor: pointer
+    align-self: center
+    
+    
+    &:focus-visible
+        outline: 1px solid colors.$primary-text
+
+    &:hover
+        border-bottom: 1px solid rgba(0, 0, 0, .1)
+
+.footer
+    display: flex
+    flex-direction: column
+    align-content: flex-end
+    justify-items: center
+
+
+.modalInput
+    flex: 1
+    height: 40px
+    padding: 10px
+    border: none
+    font-size: 16px
+    margin: 0 10px
+    transition: all 0.3s ease-in-out
+    background: rgba(0, 0, 0, .02)
+    border-radius: 0px
+    color: colors.$primary-text
+    margin-bottom: 8px
+    margin-top: 8px
+    
+    &::placeholder
+        color: rgba(255, 255, 255, .5)
+        opacity: 1
+
+    &:focus
+        border-bottom: 1px solid #eff
+        outline: none
+        color: #fff
+
+.inputContainer
+    display: flex
+    flex-direction: column

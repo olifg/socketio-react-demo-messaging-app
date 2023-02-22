@@ -1,0 +1,117 @@
+@use '../../../shared/colors' as colors
+
+.container
+    display: flex
+    flex-direction: column
+    flex-grow: 1
+    height: 100vh
+    width: 100%
+    background: linear-gradient(25deg, colors.$second-color, colors.$first-color)
+    background-size: 400% 400%
+    animation: gradientAnimation 5s ease infinite
+    border-left: 1px solid rgba(0, 0, 0, .1)
+    user-select: none
+
+.messagesContainer
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    overflow: auto
+
+::-webkit-scrollbar
+    width: 0px
+
+.messages
+    display: flex
+    flex-direction: column
+    padding: 16px
+    align-items: flex-start
+    justify-content: flex-start
+    flex-grow: 1
+
+.message
+    display: flex
+    flex-direction: column
+    padding-top: 8px
+    color: colors.$primary-text
+    border-radius: 12px
+    margin-top: 8px
+    background: linear-gradient(90deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1))
+
+.messageFromMe
+    background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .05))
+
+.alignEnd
+    align-self: flex-end
+
+.messageAuthor
+    flex-direction: column
+    padding: 8px
+    font-size: 12px
+    color: colors.$primary-text
+
+.messageBubble
+    display: inline-block
+    word-wrap: break-word
+    border-radius: 5px
+    padding: 4px 8px
+    max-width: 75vw
+
+.form
+    padding: 20px
+
+.formInner
+    margin-right: 20px
+    padding-right: 20px
+    display: flex
+
+.formInput
+    color: colors.$primary-text
+    display: flex
+    flex-grow: 1
+    height: fit-content
+    padding: 10px
+    max-height: 75px
+    resize: none
+    border-radius: 5px
+    border: 1px solid rgba(0, 0, 0, 0.2)
+    background: linear-gradient(45deg, colors.$second-color, colors.$first-color)
+    background-size: 100% 400%
+    animation: gradientAnimation 1s ease infinite
+    outline: none
+    font-size: 16px
+    line-height: 24px
+    &::placeholder
+        color: rgba(255, 255, 255, .7)
+
+.formSubmit
+    color: colors.$primary-text
+    width: 100px
+    border-radius: 5px
+    border: 1px solid rgba(0, 0, 0, 0.2)
+    margin-left: 5px
+    background: linear-gradient(45deg, colors.$first-color, colors.$second-color)
+    background-size: 100% 400%
+    animation: gradientAnimation 10s ease infinite
+    &:hover
+        background: linear-gradient(45deg, colors.$fifth-color, colors.$sixth-color)
+        background-size: 300% 90%
+        animation: gradientAnimation 15s ease infinite
+        cursor: not-allowed
+
+.submitEnabled
+    &:hover
+        background: linear-gradient(45deg, colors.$second-color, colors.$third-color)
+        background-size: 300% 90%
+        animation: gradientAnimation 15s ease infinite
+        cursor: pointer
+
+@keyframes gradientAnimation
+    0%
+        background-position: 0% 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0% 50%

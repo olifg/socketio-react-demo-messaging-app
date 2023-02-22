@@ -1,0 +1,35 @@
+@use '../../../shared/colors' as colors
+
+.tab
+    color: colors.$primary-text
+    flex-grow: 1
+    height: 45px
+    display: flex
+    justify-content: center
+    align-items: center
+    background: rgba(0, 0, 0, .1)
+    border-bottom: 1px solid rgba(0, 0, 0, .1)
+    animation: activeButtonAnimation 200ms ease-in reverse
+    user-select: none
+    
+    &:hover:not([class*='active'])
+        cursor: pointer
+
+    &.active
+        font-weight: 500
+        animation: activeButtonAnimation 200ms ease-in
+        background: rgba(0, 0, 0, 0)
+        border-bottom: 1px solid rgba(255, 255, 255, 0)
+
+.title
+    text-transform: capitalize
+
+@keyframes activeButtonAnimation
+    0%
+        background: rgba(0, 0, 0, .1)
+
+    50%
+        background: rgba(0, 0, 0, .05)
+
+    100%
+        background: rgba(0, 0, 0, 0)

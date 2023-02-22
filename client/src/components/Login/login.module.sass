@@ -1,0 +1,104 @@
+@use '../../shared/colors' as colors
+
+.formContainer
+    position: absolute
+    z-index: 1
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+    max-width: 25vw
+    padding: 20px
+    border-radius: 5px
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07)
+    background: linear-gradient(90deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1))
+
+.formTitle
+    font-size: 24px
+    margin-bottom: 20px
+    text-align: center
+    color: colors.$primary-text
+    font-weight: 500
+
+.form
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+
+.inputContainer
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    width: 100%
+
+.loginInput
+    flex: 1
+    height: 40px
+    padding: 10px
+    border: none
+    font-size: 16px
+    margin: 0 10px
+    transition: all 0.3s ease-in-out
+    background: rgba(0, 0, 0, .02)
+    border-radius: 0px
+    color: colors.$primary-text
+    
+    &::placeholder
+        color: rgba(255, 255, 255, .5)
+        opacity: 1
+
+    &:focus
+        border-bottom: 1px solid #eff
+        outline: none
+        color: #fff
+
+.loginFormButton
+    background: linear-gradient(45deg, colors.$first-color, colors.$second-color)
+    background-size: 100% 400%
+    animation: gradientAnimation 10s ease infinite
+    color: #fff
+    border: none
+    border-radius: 5px
+    padding: 10px 20px
+    font-size: 16px
+    cursor: pointer
+    margin: 5px
+    box-shadow: 0px 1px 2px rgba(0, 1, 0, .2)
+
+    &:hover
+        background: linear-gradient(45deg, colors.$second-color, colors.$third-color)
+        background-size: 300% 90%
+        animation: gradientAnimation 15s ease infinite
+
+.buttonContainer
+    display: flex
+    justify-content: center
+    margin-top: 30px
+
+/* Animated gradient background */
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    background: linear-gradient(45deg, colors.$first-color, colors.$second-color, colors.$third-color)
+    background-size: 300% 300%
+    animation: gradientAnimation 15s ease infinite
+    user-select: none
+
+@keyframes gradientAnimation
+    0%
+        background-position: 0% 50%
+
+    25%
+        background-position: 25% 25%
+
+    50%
+        background-position: 50% 50%
+
+    75%
+        background-position: 25% 75%
+
+    100%
+        background-position: 0% 50%

@@ -1,0 +1,96 @@
+@use '../../../shared/colors' as colors
+
+.modal
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-55%)
+    width: 50vw
+    height: 50vh
+    z-index: 1
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 20px
+    border-radius: 5px
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07)
+    background: linear-gradient(90deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1))
+    color: colors.$primary-text
+
+.modalBackdrop
+    position: absolute
+    height: 100vh
+    width: 100vw
+    background: linear-gradient(45deg, rgba(colors.$first-color, .7), rgba(colors.$second-color, 1), rgba(colors.$third-color, .7))
+
+.modalContent
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+
+.modalHeader
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.modalBody
+    flex-grow: 1
+    width: 100%
+    display: flex
+    flex-direction: column
+
+.closeButton
+    font-size: 32px
+    padding-right: 8px
+    cursor: pointer
+
+.buttonContainer
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+
+.sidebarButton
+    background: none
+    outline: none
+    border: none
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-grow: 1
+    padding: 10px 0
+    color: colors.$primary-text
+    border-radius: 5px
+    cursor: pointer
+    margin-bottom: 8px
+
+    &:hover
+        background: linear-gradient(120deg, rgba(colors.$third-color, .5), rgba(colors.$fourth-color, .5))
+
+.welcome
+    padding-left: 16px
+    padding-top: 8px
+    padding-bottom: 8px
+    color: colors.$primary-text
+    user-select: none
+
+.container
+    display: flex
+    flex-direction: column
+    height: 100vh
+    background: linear-gradient(120deg, colors.$third-color, colors.$first-color, colors.$third-color)
+    background-size: 400% 400%
+    animation: gradientAnimation 5s ease infinite
+    width: 250px
+    border-right: 2px solid rgba(0, 0, 0, .05)
+    user-select: none
+
+@keyframes gradientAnimation
+    0%
+        background-position: 0% 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0% 50%

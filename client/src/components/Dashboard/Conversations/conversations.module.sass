@@ -1,0 +1,28 @@
+@use '../../../shared/colors' as colors
+
+.container
+    display: flex
+    flex-direction: column
+    width: 100%
+    padding: 0
+    user-select: none
+
+.conversationCard
+    color: colors.$primary-text
+    min-height: 42px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    padding-left: 16px
+    border-radius: 4px
+    cursor: pointer
+
+    &:hover
+        background: linear-gradient(120deg, rgba(colors.$third-color, .5), rgba(colors.$fourth-color, .5))
+
+    &.active
+        background: linear-gradient(120deg, rgba(colors.$fourth-color, .7), rgba(colors.$third-color, .7))
+        border-bottom: 1px solid rgba(0, 0, 0, .1)
+        border-top: 1px solid rgba(0, 0, 0, .1)
+        font-weight: 500

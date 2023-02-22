@@ -1,0 +1,32 @@
+@use '../../../shared/colors' as colors
+
+.container
+    display: flex
+    height: 100vh
+    background: linear-gradient(45deg, colors.$first-color, colors.$second-color, colors.$third-color)
+    user-select: none
+
+.welcomeTitle
+    align-self: center
+
+.welcomeMessage
+    flex-grow: 1
+    margin: 0 50px
+    position: relative
+    transform: translateY(50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 50%
+    height: 50%
+
+.innerWelcome
+    color: colors.$primary-text
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    flex-direction: column
+
+.animation
+    width: 300px
+    align-self: center
