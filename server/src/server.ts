@@ -1,16 +1,14 @@
-import { Socket } from "socket.io";
+import { Socket, Server } from "socket.io";
 
 const express = require('express')
 const app = express()
-const httpServer = require("https").createServer();
 
 const port = 3000
 
 
-const io = require('socket.io')(httpServer, {
-    rejectUnauthorized: false, // WARN: please do not do this in production
+const io = new Server(5000, {
     cors: {
-        origin: "https://react-socketio-client-demo.onrender.com/",
+        origin: "*",
       }
 })
 
@@ -45,5 +43,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-httpServer.listen(5000);
 console.log('SocketIO Server listening in port 5000')
