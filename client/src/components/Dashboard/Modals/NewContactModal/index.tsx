@@ -19,7 +19,7 @@ export const NewContactModal = ({
         e.preventDefault();
         if (idRef.current && nameRef.current) {
             if(!idRef.current.value || !nameRef.current.value) return;
-            createContact(idRef.current.value, nameRef.current.value)
+            createContact(idRef.current.value.trim(), nameRef.current.value.trim())
             closeModal();
         }
     }
