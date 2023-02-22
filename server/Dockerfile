@@ -6,5 +6,5 @@ COPY ["package.json", "npm-shrinkwrap.json*", "./"]
 RUN npm install
 COPY ./build .
 EXPOSE 5000
-CMD ["node", "./build/server.js"]
+CMD ["node", "server.js"]
  
