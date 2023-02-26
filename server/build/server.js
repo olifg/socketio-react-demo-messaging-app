@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var httpServer = require("https").createServer();
 var express = require('express');
+var socketio = require('socket.io');
+var http = require('http');
+var router = express.Router();
+var cors = require('cors');
 var app = express();
-var port = 3000;
-var io = require('socket.io')(httpServer, {
-    rejectUnauthorized: false,
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-    }
-});
+var PORT = process.env.PORT || 5000;
+var server = http.createServer(app);
+var io = socketio(server);
 io.on('connection', function (socket) {
     var id = socket.handshake.query.id;
     console.log('id: ', id);
@@ -30,11 +28,11 @@ io.on('connection', function (socket) {
         });
     });
 });
-app.get('/', function (req, res) {
-    res.send('Hello World!');
+router.get('/', function (req, res) {
+    res.send('Backend server.');
 });
-app.listen(port, function () {
-    console.log("Example app listening on port ".concat(port));
+app.use(router);
+app.use(cors);
+server.listen(PORT, function () {
+    console.log("Server listening on port ".concat(PORT));
 });
-httpServer.listen(5000);
-console.log('SocketIO Server listening in port 5000');

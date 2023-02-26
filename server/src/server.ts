@@ -1,17 +1,18 @@
 import { Socket, Server } from "socket.io";
 
-const express = require('express')
+const express = require('express');
+const socketio = require('socket.io');
+const http = require('http');
+const router = express.Router();
+const cors = require('cors');
+
 const app = express()
+const PORT = process.env.PORT || 5000;
 
-const port = 3000
+const server = http.createServer(app);
+const io = socketio(server);
 
 
-const io = new Server(5000, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-      }
-})
 
 io.on('connection', (socket: Socket) => {
     const id = socket.handshake.query.id;
@@ -36,12 +37,13 @@ io.on('connection', (socket: Socket) => {
 })
 
 
-app.get('/', (req: any, res: { send: (arg0: string) => void; }) => {
-  res.send('Hello World!')
+router.get('/', (req: any, res: { send: (arg0: string) => void; }) => {
+  res.send('Backend server.')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.use(router);
+app.use(cors);
 
-console.log('SocketIO Server listening in port 5000')
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`)
+})
